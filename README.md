@@ -16,7 +16,7 @@ This repository contains two interconnected Python projects built to demonstrate
 * **Unified Flow:** Shares authentication architecture with the Password Manager for a seamless user experience.
 
 ## 🛠️ Tech Stack & Libraries
-* **Language:** Python
+* **Language:** Python ,Html ,Css
 * **Database:** SQLite
 * **Key Libraries & Modules:**
   * `flask`: For routing and building the foundational web application interface.
