@@ -1,0 +1,167 @@
+.master-banner {
+    background-color: #25262e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 4px solid #00b4d8;
+    padding-top: 15px; /* Reduced padding */
+}
+
+.banner-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px; /* Pulled the text slightly closer to Arceus */
+    margin-bottom: 5px;
+}
+
+.title-main {
+    font-size: 2.5rem; /* Scaled down from 3.5rem */
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 6px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.banner-avatar {
+    height: 120px; /* The heavy lifter! Scaled down from 200px */
+    object-fit: contain;
+    filter: drop-shadow(0px 0px 15px rgba(0, 180, 216, 0.4));
+}
+
+/* --- Integrated Navbar Styling --- */
+.nav-tabs {
+    display: flex;
+    list-style: none;
+    gap: 60px; /* Pushes the 4 links evenly apart */
+    padding: 0;
+    margin: 0;
+}
+
+.nav-link {
+    display: block;
+    padding: 15px 10px;
+    color: #a0a5b5;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase; /* Makes the links match the terminal aesthetic */
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+    border-bottom: 3px solid #00b4d8; /* Cyan hover effect */
+}
+body {
+    background-color: #8a8d96; /* A solid, clean grey */
+    background-image: none; /* Removes the dark terminal grid */
+    color: #e2e4eb;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.display-card {
+    background-color: #ffffff; /* Turns the entire form box pure white */
+    border-radius: 8px;
+    padding: 40px;
+    border-left: 5px solid #00b4d8; /* Keeps your cyan accent line */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Adds a shadow to lift it off the grey background */
+    width: 100%;
+    max-width: 500px;
+}
+
+/* We must flip the text to dark grey/black so it is visible on the white box! */
+.display-card h2 {
+    margin-bottom: 5px;
+    color: #1a1b20; /* Dark premium black */
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+.display-card p {
+    color: #5a5f73; /* Medium slate grey */
+    line-height: 1.6;
+    font-size: 1.05rem;
+    margin-bottom: 25px;
+}
+.display-card form {
+    color: #1a1b20;
+    font-weight: 600;
+}
+.input-field {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0 20px 0; /* Gives nice breathing room between the boxes */
+    background: #f4f5f7; /* Very light grey */
+    border: 1px solid #d1d4dc; /* Soft silver border */
+    color: #1a1b20;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Makes the input glow cyan when the user clicks inside it */
+.input-field:focus {
+    outline: none;
+    border: 1px solid #00b4d8;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.15);
+}
+
+/* Vibrant Action Button */
+.action-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #00b4d8, #0077b6); /* Keeps the cyan pop */
+    color: white;
+    border: none;
+    padding: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    margin-top: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px); /* Lifts the button slightly when hovered */
+    box-shadow: 0 6px 15px rgba(0, 180, 216, 0.3);
+}
+system-footer {
+    margin-top: auto; /* This pushes the footer to the absolute bottom of the screen */
+    background-color: #111216;
+    border-top: 1px solid #2a2b36;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.system-footer p {
+    color: black;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    font-family: 'Courier New', Courier, monospace; /* Terminal hacker font */
+}
+
+.status-online {
+    color: #00ff88; /* Neon green */
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+}
+.content-wrapper {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Pushes the card to the center horizontally */
+    align-items: center;     /* Pushes the card to the center vertically */
+    padding: 20px;
+}
+.view-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

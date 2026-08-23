@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Pokedex Terminal</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <header class="master-banner">
+
+        <div class="banner-content">
+            <h1 class="title-main">POKÉDEX</h1>
+            <img class="banner-avatar" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/493.png" alt="Arceus">
+            <h1 class="title-main">TERMINAL</h1>
+        </div>
+
+        <nav>
+            <ul class="nav-tabs">
+                <li><a href="#" class="nav-link">Sign Up</a></li>
+                <li><a href="#" class="nav-link">Log In</a></li>
+                <li><a href="#" class="nav-link">Get Data</a></li>
+                <li><a href="#" class="nav-link">Type Chart</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main class="content-wrapper">
+        <div class="display-card">
+            <h2>TRAINER AUTHENTICATION</h2>
+            <p class="card-subtitle">Establish datalink connection to access the Pokedex terminal.</p>
+
+            <form class="auth-form" action="/login" method="POST">
+                <div class="form-group">
+                    <label for="trainer-id">Trainer ID</label>
+                    <input type="text" id="trainer-id" name="trainer_id" placeholder="e.g., RED_001" required >
+                </div>
+
+                <div class="form-group">
+                    <label for="access-key">Access Key</label>
+                    <input type="password" name= "access_key" id="access-key" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit"  class="auth-btn">INITIALIZE SESSION</button>
+            </form>
+
+            <div class="form-footer">
+                <p>Forgot Password? <a href="#" class="footer-link">Reset</a></p>
+            </div>
+        </div>
+    </main>
+<footer class="system-footer">
+        <p>> SYSTEM STATUS: <span class="status-online">ONLINE</span> | DATALINK: SECURE | v1.0.0</p>
+    </footer>
+</body>
+</html>
