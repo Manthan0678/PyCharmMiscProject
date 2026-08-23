@@ -4,8 +4,8 @@ import random
 import smtplib
 from email.message import EmailMessage
 def send_real_email_pokemon(receiver_email, otp_code):
-    sender_email = "manthan0678@gmail.com"
-    sender_password = "zuijebwjlykbmjtz"
+    sender_email = "YOUR_EMAIL_HERE@gmail.com"
+    sender_password = "YOUR_APP_PASSWORD_HERE"
     msg = EmailMessage()
     msg['Subject'] = 'Password Reset Security Alert'
     msg['From'] = sender_email
