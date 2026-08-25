@@ -17,13 +17,19 @@ def login():
 
     conn = sqlite3.connect('pokemon_application/pokemon_master.db')    
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM pokemon_table WHERE username=? AND password_hash=?", (submitted_id, hashed_key))
+    cursor.execute("SELECT * FROM pokemon_table WHERE username=?", (submitted_id,))
     trainer = cursor.fetchone()
-    conn.close()
 
-    if trainer:
+    if trainer!= None:
+        from login_password_pokemon import pokemon_password_checker
+        conn.close()
+        stored_hashed_key = trainer[2]
+        failed_attempts = trainer[3]
+        is_locked = trainer[4]
         return render_template('dashboard.html', trainer_id=submitted_id)
     else:
+        conn.close()
         return render_template('index.html', error="Invalid Trainer ID or Access Key.")
+
 if __name__ == '__main__':
     app.run(debug=True)
