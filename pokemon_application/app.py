@@ -1,25 +1,29 @@
 from flask import Flask, render_template, request
+import sqlite3
+import hashlib
 
 app = Flask(__name__)
 
-# This is your default route that loads the UI
 @app.route('/')
 def home():
     return render_template('index.html')
-
-# This is the NEW route that handles the login logic
-@app.route('/login', methods=['POST'])
-@app.route('/login', methods=['POST'])
 @app.route('/login', methods=['POST'])
 def login():
     submitted_id = request.form.get('trainer_id')
-    submitted_key = request.form.get('access_key')
+    raw_key = request.form.get('access_key')
 
-    if submitted_id == "RED_001" and submitted_key == "pikachu123":
-        # THE NEW CONNECTION: Load the dashboard and pass the ID directly into the HTML!
+    encoded_key = raw_key.encode()
+    hashed_key = hashlib.sha256(encoded_key).hexdigest()
+
+    conn = sqlite3.connect('pokemon_application/pokemon_master.db')    
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM pokemon_table WHERE username=? AND password_hash=?", (submitted_id, hashed_key))
+    trainer = cursor.fetchone()
+    conn.close()
+
+    if trainer:
         return render_template('dashboard.html', trainer_id=submitted_id)
     else:
-        # We will make the error screen pretty later, let's just get the success path working
-        return "<h1>ACCESS DENIED: Invalid Trainer ID or Access Key.</h1>"
+        return render_template('index.html', error="Invalid Trainer ID or Access Key.")
 if __name__ == '__main__':
     app.run(debug=True)
