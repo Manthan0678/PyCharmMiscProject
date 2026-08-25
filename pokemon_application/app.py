@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 import sqlite3
 import hashlib
 
+from streamlit import status
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -26,7 +28,12 @@ def login():
         stored_hashed_key = trainer[2]
         failed_attempts = trainer[3]
         is_locked = trainer[4]
-        return render_template('dashboard.html', trainer_id=submitted_id)
+        from web_login_handler import pokemon_password_checker
+        status = pokemon_password_checker(submitted_id, stored_hashed_key, hashed_key)
+        if status == True:
+            return render_template('dashboard.html', trainer_id=submitted_id)
+        else:
+            return render_template('index.html', error="Invalid Password.")
     else:
         conn.close()
         return render_template('index.html', error="Invalid Trainer ID or Access Key.")
