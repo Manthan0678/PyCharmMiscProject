@@ -19,7 +19,7 @@ def pokemon_password_checker(username,saved_password_hashed):
             if attempt_left == 0:
                 print("no more attempts access denied.")
                 print("ACCOUNT IS NOW BLOCKED .")
-                lock_application = sqlite3.connect("pokemon_master.db")
+                lock_application = sqlite3.connect("pokemon_application/pokemon_master.db")
                 cursor = lock_application.cursor()
                 cursor.execute("UPDATE pokemon_table SET is_locked = 1 where username=?", (username,) )
                 lock_application.commit()
@@ -28,7 +28,7 @@ def pokemon_password_checker(username,saved_password_hashed):
 def login_pokemon():
     print("LOGIN PAGE")
     user_name = input("enter your username: ")
-    connect = sqlite3.connect("pokemon_master.db")
+    connect = sqlite3.connect("pokemon_application/pokemon_master.db")
     cursor = connect.cursor()
     cursor.execute("SELECT * FROM pokemon_table WHERE username =?",(user_name,))
     user_data = cursor.fetchone()
@@ -77,7 +77,7 @@ def login_pokemon():
                                 fetch_pokemon_data(target)
                     elif user_input == "2":
                         team = build_pokemon_team()
-                        connect_database = sqlite3.connect("pokemon_master.db")
+                        connect_database = sqlite3.connect("pokemon_application/pokemon_master.db")
                         cursor = connect_database.cursor()
                         cursor.execute("UPDATE pokemon_table SET team_data = ? where username = ?",(team, database_username))
                         connect_database.commit()

@@ -2,7 +2,7 @@ import sqlite3
 from password_application.professional_password_creator_ import professional_password_creator
 from password_application.email_otp import security_email_id
 def database_creation():
-    connect_database = sqlite3.connect("pokemon_master.db")
+    connect_database = sqlite3.connect("pokemon_application/pokemon_master.db")
     cursor = connect_database.cursor()
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS pokemon_table( 
@@ -17,7 +17,7 @@ def database_creation():
     connect_database.close()
 def registration_page_pokemon():
     database_creation()
-    connect = sqlite3.connect("pokemon_master.db")
+    connect = sqlite3.connect("pokemon_application/pokemon_master.db")
     cursor = connect.cursor()
     while True:
         print("SIGN UP ")

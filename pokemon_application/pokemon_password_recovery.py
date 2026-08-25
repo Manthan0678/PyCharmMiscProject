@@ -38,7 +38,7 @@ def reset_password_pokemon(target_user=None):
         target_user = input("please enter username: ")
     else:
         print("username: "+ target_user+"")
-    reset_password_in_database = sqlite3.connect("pokemon_master.db")
+    reset_password_in_database = sqlite3.connect("pokemon_application/pokemon_master.db")
     cursor = reset_password_in_database.cursor()
     cursor.execute("SELECT email from pokemon_table where username=?",(target_user,))
     user_data = cursor.fetchone()
