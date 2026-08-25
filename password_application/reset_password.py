@@ -16,8 +16,8 @@ import random
 import smtplib
 from email.message import EmailMessage
 def send_real_email(receiver_email, otp_code):
-    sender_email = "manthan0678@gmail.com"
-    sender_password = "zuijebwjlykbmjtz"
+    sender_email = "Youremail@gmail.com"
+    sender_password = "Enter your password here"  # Replace with your actual email password or app password
     msg = EmailMessage()
     msg['Subject'] = 'Password Reset Security Alert'
     msg['From'] = sender_email
