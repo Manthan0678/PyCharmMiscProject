@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-
     <header class="master-banner">
-
         <div class="banner-content">
             <h1 class="title-main">POKÉDEX</h1>
             <img class="banner-avatar" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/493.png" alt="Arceus">
@@ -31,7 +29,11 @@
         <div class="display-card">
             <h2>TRAINER AUTHENTICATION</h2>
             <p class="card-subtitle">Establish datalink connection to access the Pokedex terminal.</p>
-
+        {% if error %}
+                <div id="error-box" style="color: red; font-weight: bold; text-align: center; margin-bottom: 15px;">
+            {{ error }}
+            </div>
+        {% endif %}
             <form class="auth-form" action="/login" method="POST">
                 <div class="form-group">
                     <label for="trainer-id">Trainer ID</label>
@@ -54,5 +56,17 @@
 <footer class="system-footer">
         <p>> SYSTEM STATUS: <span class="status-online">ONLINE</span> | DATALINK: SECURE | v1.0.0</p>
     </footer>
+<script>
+        const errorBox = document.getElementById('error-box');
+        const inputFields = document.querySelectorAll('input');
+
+        if (errorBox) {
+            inputFields.forEach(input => {
+                input.addEventListener('input', function() {
+                    errorBox.style.display = 'none';
+                });
+            });
+        }
+    </script>
 </body>
 </html>

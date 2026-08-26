@@ -13,7 +13,7 @@ def login():
 
     login_status = pokemon_password_checker(submitted_id, raw_key)
     if login_status == "SUCCESS":
-        return render_template('success.html', trainer_id=submitted_id)
+        return render_template('dashboard.html', trainer_id=submitted_id)
     elif login_status == "LOCKED":
         return render_template('index.html', error="ACCOUNT LOCKED. Please reset your password.")
     elif login_status == "FAILED":
