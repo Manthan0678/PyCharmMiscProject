@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request
 from web_login_handler import pokemon_password_checker
-
 app = Flask(__name__)
-
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -10,7 +8,6 @@ def home():
 def login():
     submitted_id = request.form.get('trainer_id')
     raw_key = request.form.get('access_key')
-
     login_status = pokemon_password_checker(submitted_id, raw_key)
     if login_status == "SUCCESS":
         return render_template('dashboard.html', trainer_id=submitted_id)
@@ -20,7 +17,16 @@ def login():
         return render_template('index.html', error="Invalid password.")
     elif login_status == "NOT FOUND":
         return render_template('index.html', error="Trainer ID not found.")
-
-
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'GET':
+        return render_template('sign_up.html')
+    
+    elif request.method == 'POST':
+        submitted_id = request.form.get('trainer_id')
+        submitted_email = request.form.get('email')
+        raw_key = request.form.get('access_key')
+        # to do ...
+        return f"Received request to create user: {submitted_id}"
 if __name__ == '__main__':
     app.run(debug=True)
