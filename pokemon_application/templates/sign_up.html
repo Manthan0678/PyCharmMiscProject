@@ -13,7 +13,6 @@
             <img class="banner-avatar" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/493.png" alt="Arceus">
             <h1 class="title-main">TERMINAL</h1>
         </div>
-
         <nav>
             <ul class="nav-tabs">
                 <li><a href="#" class="nav-link">Sign Up</a></li>
@@ -22,9 +21,7 @@
                 <li><a href="#" class="nav-link">Type Chart</a></li>
             </ul>
         </nav>
-
     </header>
-
     <main class="content-wrapper">
         <div class="display-card">
             <h2>SIGN UP NEW TRAINER</h2>
@@ -47,7 +44,9 @@
 
                 <div class="form-group">
                     <label for="access-key">Access Key</label>
-                    <input type="password" name= "access_key" id="access-key" placeholder="••••••••" required>
+                    <input type="password" name="access_key" id="access_key" placeholder="••••••••" required 
+                    pattern="(?=.*\d)(?=.*[A-Z])(?=.*[!@#$%^&*()]).{8,}" 
+                    title="Must contain at least 8 characters, including 1 uppercase letter, 1 number, and 1 special character.">
                 </div>
 
                 <button type="submit"  class="auth-btn">CREATE ACCOUNT!</button>

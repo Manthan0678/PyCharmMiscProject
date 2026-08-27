@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from web_login_handler import pokemon_password_checker
+from web_sign_up import create_new_trainer
 app = Flask(__name__)
 @app.route('/')
 def home():
@@ -24,9 +25,12 @@ def signup():
     
     elif request.method == 'POST':
         submitted_id = request.form.get('trainer_id')
-        submitted_email = request.form.get('email')
+        submitted_email = request.form.get('email_id')
         raw_key = request.form.get('access_key')
-        # to do ...
-        return f"Received request to create user: {submitted_id}"
+        signup_status = create_new_trainer(submitted_id, submitted_email, raw_key)
+        if signup_status == "SUCCESS":
+            return render_template('index.html', message="Account created successfully!")
+        elif signup_status == "TAKEN":
+            return render_template('sign_up.html', error="Trainer ID already taken. Choose another one.")
 if __name__ == '__main__':
     app.run(debug=True)
